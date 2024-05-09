@@ -29,6 +29,12 @@ const createPost = async (req, res) => {
        
         console.log(req.user)
         // console.log(req.postPhoto)
+        if (!req.user || !req.user._id) {
+            return res.status(400).json({
+                message: "User not authenticated"
+            });
+        }
+
         const file = req.file;
 console.log(file); 
         const postPhoto = await uploadImage(req.file);
@@ -164,6 +170,11 @@ const getPostById = async (req, res) => {
 const getPostByUser = async (req, res) => {
     try {
         const id = req.params.id
+        if(!id){
+            return res.status(400).json({
+                message : "User id not found"
+            })
+        }
         const posts = await Post.find({createdBy : id}).populate("createdBy", "name username avatar coverimage")
         if(!posts){
             return res.status(400).json({
