@@ -23,12 +23,14 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 - Node.js installed on your machine
 - MongoDB set up and running
+- Express.js
+- JWT
 
 ### Installation
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/aasuyadav1/twitter-api-project.git
+    git clone https://github.com/Aasuyadav1/Twitter-API.git
     cd twitter-api-project
     ```
 
